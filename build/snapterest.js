@@ -18741,52 +18741,69 @@ if (process.env.NODE_ENV !== 'production') {
 
 }).call(this,require('_process'))
 },{"./lib/Object.assign":50,"./lib/React":52,"./lib/deprecated":131,"_process":27}],156:[function(require,module,exports){
+'use strict';
+
 var React = require('react');
-var ReactDom = require('react-dom');
+var ReactDOM = require('react-dom');
 
-var h1 = React.createElement('h1', { className: 'header', key: 'header' }, 'This is React');
-var p = React.createElement('p', { className: 'content', key: 'content' }, 'And that is how it works');
-var reactFragment = [h1, p];
-var section = React.createElement('section', { className: 'container' }, reactFragment);
+var listOfItemsT1 = React.createElement(
+    'ul',
+    { className: 'list-of-items' },
+    React.createElement(
+        'li',
+        { className: 'item-1' },
+        'Item 1'
+    ),
+    React.createElement(
+        'li',
+        { className: 'item-2' },
+        'Item 2'
+    ),
+    React.createElement(
+        'li',
+        { className: 'item-3' },
+        'Item 3'
+    ),
+    React.createElement(
+        'li',
+        { className: 'item-4' },
+        'Item 4'
+    )
+);
 
-ReactDom.render(section, document.getElementById('react-application'));
+ReactDOM.render(listOfItemsT1, document.getElementById('listExample1'));
 
-var listItemElement1 = React.createElement('li', { className: 'item-1', key: 'item-1' }, 'Item 1');
+var ReactClass1 = React.createClass({
+    displayName: 'ReactClass1',
 
-var listItemElement2 = React.createElement('li', { className: 'item-2', key: 'item-2' }, 'Item 2');
 
-var listItemElement3 = React.createElement('li', { className: 'item-3', key: 'item-3' }, 'Item 3');
+    getInitialState: function getInitialState() {
+        return {
+            isHeaderHidden: true
+        };
+    },
 
-var reactFragment = [listItemElement1, listItemElement2, listItemElement3];
+    handleClick: function handleClick() {
+        this.setState({
+            isHeaderHidden: !this.state.isHeaderHidden
+        });
+    },
 
-var listOfItems = React.createElement('ul', { className: 'list-of-items' }, reactFragment);
+    render: function render() {
 
-ReactDom.render(listOfItems, document.getElementById('listExample1'));
+        var title = 'Statefil Rect Component';
+        var headerElement = React.createElement('h1', { className: 'header', key: 'header' }, title);
+        var buttonElement = React.createElement('button', { className: 'btn btn-default', onClick: this.handleClick, key: 'button' }, 'Toggle Header');
 
-var createListItemElement = React.createFactory('li');
+        if (this.state.isHeaderHidden) {
+            return React.createElement('div', null, [buttonElement]);
+        }
 
-var listItemElementf1 = createListItemElement({ className: 'item-1', key: 'item-1' }, 'Item 1');
+        return React.createElement('div', null, [buttonElement, headerElement]);
+    }
+});
 
-var listItemElementf2 = createListItemElement({ className: 'item-2', key: 'item-2' }, 'Item 2');
-
-var listItemElementf3 = createListItemElement({ className: 'item-3', key: 'item-3' }, 'Item 3');
-
-var reactFragmentF1 = [listItemElementf1, listItemElementf2, listItemElementf3];
-
-var listOfItemsF1 = React.createElement('ul', { className: 'list-of-items' }, reactFragmentF1);
-
-ReactDom.render(listOfItemsF1, document.getElementById('listExample2'));
-
-var listItemElementD1 = React.DOM.li({ className: 'item-1d', key: 'item-1D' }, 'Item Dom 1');
-
-var listItemElementD2 = React.DOM.li({ className: 'item-2d', key: 'item-2D' }, 'Item Dom 2');
-
-var listItemElementD3 = React.DOM.li({ className: 'item-3d', key: 'item-3D' }, 'Item Dom 3');
-
-var reactFragmentD1 = [listItemElementD1, listItemElementD2, listItemElementD3];
-
-var listOfItemsD1 = React.DOM.ul({ className: 'list-of-items' }, reactFragmentD1);
-
-ReactDom.render(listOfItemsD1, document.getElementById('listExample3'));
+var reactComponentElement1 = React.createElement(ReactClass1);
+var reactComponent1 = ReactDOM.render(reactComponentElement1, document.getElementById('listExample1'));
 
 },{"react":155,"react-dom":28}]},{},[156]);

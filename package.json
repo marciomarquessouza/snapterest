@@ -10,6 +10,8 @@
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
     "babelify": "^8.0.0",
     "bable-loader": "0.0.1-security",
     "browserify": "^14.5.0",
@@ -17,8 +19,8 @@
     "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {
-    "babel-preset-react": "^6.24.1",
     "react": "^0.14.0-beta3",
-    "react-dom": "^0.14.0-beta3"
+    "react-dom": "^0.14.0-beta3",
+    "snapkite-stream-client": "^1.0.3"
   }
 }
