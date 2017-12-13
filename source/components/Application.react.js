@@ -49,7 +49,7 @@ var Application = React.createClass( {
                     <div className="col-md-8">
                         <Collection 
                             tweets={this.state.collectionTweets}
-                            onRemoveTweetFromCollection={this.removeTweetFromCollection} />
+                            onRemoveTweetFromCollection={this.removeTweetFromCollection} 
                             onRemoveAllTweetsFromCollection={this.removeAllTweetsFromCollection} />
                     </div>
                 </div>

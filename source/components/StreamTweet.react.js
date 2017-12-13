@@ -44,7 +44,7 @@ var StreamTweet = React.createClass({
 
         var currentTweetLength = this.props.tweet.text.length;
         var nextTweetLength = nextProps.tweet.text.length;
-        var isNumberOfCharactersIncreasing = (nextweetLength > currentTweetLength);
+        var isNumberOfCharactersIncreasing = (nextTweetLength > currentTweetLength);
         var headerText;
 
         this.setState({
